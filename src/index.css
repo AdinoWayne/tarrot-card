@@ -88,6 +88,22 @@
 	/*background-position: 0 0, 0 0; */
 }
 
+.spin {
+	animation-name: spin;
+	animation-duration: 100ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-out;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
 .card .back {
 	background: white;
 	-webkit-backface-visibility: hidden;

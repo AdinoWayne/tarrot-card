@@ -51,6 +51,7 @@ function App() {
                 cardContainer.zIndex = 4 - idx;
                 cardContainer.top = '50%';
                 cardContainer.left = '41%';
+                cardContainer.class2 = true;
                 setCards([...cards.slice(0, idx), cardContainer, ...cards.slice(idx + 1)])
             }, idx * 20);
         });
@@ -66,6 +67,7 @@ function App() {
         // reset card
         for (let i = 0; i < cards.length; i++) {
            cards[i].class = false;
+           cards[i].class2 = false;
         }
     
         // shuffle the positions
@@ -101,7 +103,7 @@ function App() {
                     {
                         cards ? cards.map((item, index) => (
                             <div key={index} className='card-container' style={{top: item.top, left: item.left, zIndex: item.zIndex}}>
-                                <div className={"card " + (item.class ? 'clicked' : '')} onClick={() => handleFlip(item, index)}>
+                                <div className={"card " + (item.class ? 'clicked ' : '')  + (item.class2 ? 'spin' : '')} onClick={() => handleFlip(item, index)}>
                                     <figure className={"back " + `back-${index}`}></figure>
                                     <figure className="front"></figure>
                                 </div>
